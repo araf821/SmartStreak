@@ -1,6 +1,11 @@
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+
 const SetupPage = () => {
-  return (
-    <div>SetupPage</div>
-  )
-}
-export default SetupPage
+  const { userId } = auth();
+
+  if (!userId) redirect("/");
+
+  return <div>SetupPage</div>;
+};
+export default SetupPage;
