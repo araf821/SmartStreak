@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Quicksand } from "next/font/google";
+import { Toaster } from "sonner";
 
 const quicksand = Quicksand({
   weight: ["400", "500", "600", "700"],
@@ -24,6 +25,7 @@ export default function RootLayout({
         <body
           className={`min-h-[100dvh] overflow-x-hidden bg-gradient-to-b from-background to-gray-900 ${quicksand.className}`}
         >
+          <Toaster richColors />
           {children}
         </body>
       </html>
