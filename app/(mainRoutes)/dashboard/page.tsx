@@ -12,6 +12,7 @@ import {
   Plus,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const DashboardPage = async () => {
@@ -42,7 +43,7 @@ const DashboardPage = async () => {
             <p className="capitalize text-slate-300 md:text-lg">
               {user.profileType.toLowerCase()}
             </p>
-            <button className="mt-1 flex items-center gap-2 rounded-md bg-rose-500 px-1.5 py-0.5 font-bold w-fit text-white">
+            <button className="mt-1 flex w-fit items-center gap-2 rounded-md bg-rose-500 px-1.5 py-0.5 font-bold text-white">
               Edit Profile <PenSquare className="h-4 w-4" />
             </button>
           </div>
@@ -95,25 +96,39 @@ const DashboardPage = async () => {
       {/* Classes */}
       <div className="col-span-1 w-full px-4 md:col-span-3 lg:col-span-2">
         <div className="grid grid-cols-1 gap-8 min-[550px]:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2">
-          {dummyClass.map((student) => (
+          {user.classes.map((c) => (
             <div
               className="flex aspect-square w-full flex-col justify-between overflow-hidden rounded-xl border border-slate-700 bg-slate-900"
-              key={student.name}
+              key={c.id}
             >
-              <div className="space-y-2">
+              <div className="">
                 <div className="relative aspect-[5/2] w-full">
                   <Image
-                    src={student.imageUrl}
+                    src={c.imageUrl}
                     alt=""
                     fill
-                    className="object-cover"
+                    className="border-b border-slate-700 object-cover"
                   />
                 </div>
-                <p className="px-4 text-xl">{student.name}</p>
+                <div className="p-4">
+                  <Link
+                    href={`/class/${c.id}`}
+                    className="whitespace-pre-line break-words text-xl font-semibold xl:text-2xl"
+                  >
+                    {c.name}
+                  </Link>
+                </div>
               </div>
-              <button className="mb-4 ml-4 w-fit rounded-md border border-rose-500 px-1.5 py-0.5 text-rose-500">
-                Leave Class
-              </button>
+              {user.profileType !== "TEACHER" && (
+                <button className="mb-4 ml-4 w-fit rounded-md border border-rose-500 px-1.5 py-0.5 text-rose-500">
+                  Leave Class
+                </button>
+              )}
+              {user.profileType !== "STUDENT" && (
+                <button className="mb-4 ml-4 w-fit rounded-md border border-rose-500 px-1.5 py-0.5 text-rose-500">
+                  Delete Class
+                </button>
+              )}
             </div>
           ))}
           {user.profileType === "STUDENT" ? (

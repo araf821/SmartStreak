@@ -50,10 +50,10 @@ const CreateClassModal: FC<CreateClassModalProps> = ({}) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const classId = await axios.post("/api/class", values);
+      const newClass = await axios.post("/api/class", values);
 
       toast.success("Class was created!");
-      router.push(`/class/${classId}`);
+      router.push(`/class/${newClass.data.classId}`);
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong.");
