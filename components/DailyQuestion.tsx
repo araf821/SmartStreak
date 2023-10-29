@@ -33,7 +33,7 @@ const DailyQuestion: FC<DailyQuestionProps> = ({ user }) => {
   const onCall = async () => {
     setGenerating(true);
     try {
-      const response = await axios.post("/api/generate-questions/daily");
+      const response = await axios.post("/api/daily");
 
       setQuestion(JSON.parse(response.data));
     } catch (error) {

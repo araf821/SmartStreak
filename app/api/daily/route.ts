@@ -1,11 +1,6 @@
 import { getCurrentUser } from "@/lib/getCurrentUser";
+import { openai } from "@/lib/openai";
 import { NextResponse } from "next/server";
-
-import OpenAI from "openai";
-
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 const questionSchema = {
   type: "object",
