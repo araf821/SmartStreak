@@ -42,7 +42,7 @@ const DashboardPage = async () => {
             <p className="capitalize text-slate-300 md:text-lg">
               {user.profileType.toLowerCase()}
             </p>
-            <button className="mt-1 flex items-center gap-2 rounded-md bg-rose-500 px-1.5 py-0.5 font-bold text-white">
+            <button className="mt-1 flex items-center gap-2 rounded-md bg-rose-500 px-1.5 py-0.5 font-bold w-fit text-white">
               Edit Profile <PenSquare className="h-4 w-4" />
             </button>
           </div>

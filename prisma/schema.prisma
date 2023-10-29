@@ -35,7 +35,7 @@ model Class {
 
   name       String
   imageUrl   String
-  grade      String
+  grade      Int
   inviteCode String
   teacher    User   @relation(fields: [teacherId], references: [id])
   teacherId  String @db.ObjectId
