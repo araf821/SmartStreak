@@ -58,7 +58,9 @@ const DashboardPage = async () => {
                 Current Streak
               </span>
             </div>
-            <span className="text-xl font-bold text-black md:text-2xl">7</span>
+            <span className="text-xl font-bold text-black md:text-2xl">
+              {user.currentStreak ?? "0"}
+            </span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-indigo-700 bg-indigo-500 px-4 py-2.5">
             <div className="flex items-center gap-2">
@@ -68,7 +70,9 @@ const DashboardPage = async () => {
                 Highest Streak
               </span>
             </div>
-            <span className="text-xl font-bold text-black md:text-2xl">7</span>
+            <span className="text-xl font-bold text-black md:text-2xl">
+              {user.highestStreak ?? "0"}
+            </span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-indigo-700 bg-indigo-500 px-4 py-2.5">
             <div className="flex items-center gap-2">
@@ -78,7 +82,9 @@ const DashboardPage = async () => {
                 Questions Answered
               </span>
             </div>
-            <span className="text-xl font-bold text-black md:text-2xl">7</span>
+            <span className="text-xl font-bold text-black md:text-2xl">
+              {user.questionsAnswered ?? "0"}
+            </span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-indigo-700 bg-indigo-500 px-4 py-2.5">
             <div className="flex items-center gap-2">
@@ -95,6 +101,8 @@ const DashboardPage = async () => {
 
       {/* Classes */}
       <div className="col-span-1 w-full px-4 md:col-span-3 lg:col-span-2">
+        <h2 className="text-3xl md:text-4xl pb-2">Your Classes</h2>
+        <hr className="mb-6 border-slate-700" />
         <div className="grid grid-cols-1 gap-8 min-[550px]:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2">
           {user.classes.map((c) => (
             <div
