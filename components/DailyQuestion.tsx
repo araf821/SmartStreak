@@ -35,7 +35,6 @@ const DailyQuestion: FC<DailyQuestionProps> = ({ user }) => {
     try {
       const response = await axios.post("/api/generate-questions/daily");
 
-      console.log(response);
       setQuestion(JSON.parse(response.data));
     } catch (error) {
       console.log("------------------- ERROR -----------------\n\n\n");
