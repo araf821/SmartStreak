@@ -10,13 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ProfileType {
+  STUDENT
+  TEACHER
+}
+
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String @unique
-  
-  name String
-  imageUrl String
-  email    String
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+
+  name        String
+  imageUrl    String
+  email       String
+  grade       Int
+  profileType ProfileType
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

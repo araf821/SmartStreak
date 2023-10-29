@@ -6,6 +6,6 @@ const DashboardPage = async () => {
 
   // if (!user) redirect("/setup");
 
-  return <div>DashboardPage</div>;
+  return <div>{user.name}</div>;
 };
 export default DashboardPage;
