@@ -25,10 +25,10 @@ model User {
   grade       Int
   profileType ProfileType
 
-  currentStreak     Int      @default(0)
-  highestStreak     Int      @default(0)
-  questionsAnswered Int      @default(0)
-  streakUpdatedAt   DateTime
+  currentStreak     Int       @default(0)
+  highestStreak     Int       @default(0)
+  questionsAnswered Int       @default(0)
+  streakUpdatedAt   DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

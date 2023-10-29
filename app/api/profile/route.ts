@@ -19,7 +19,6 @@ export async function POST(req: Request) {
         name,
         grade,
         profileType,
-        streakUpdatedAt: "",
       },
     });
 
