@@ -8,14 +8,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <div className="w-full py-4 px-4 md:px-8 border-b border-slate-700">
       <div className="flex justify-between mx-auto max-w-screen-xl">
-        <p>
+        <Link href="/dashboard" className="cursor-pointer">
           <span className="text-rose-500 text-3xl md:text-3xl font-semibold">
             Smart
           </span>
           <span className="text-indigo-500 text-3xl md:text-3xl font-semibold">
             Streak
           </span>
-        </p>
+        </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/question-of-the-day"
